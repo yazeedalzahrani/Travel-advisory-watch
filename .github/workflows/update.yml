@@ -1,0 +1,26 @@
+name: Update advisories
+on:
+  schedule:
+    - cron: "17 */6 * * *"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install headless browser (used only for JavaScript-only pages)
+        continue-on-error: true
+        run: |
+          pip install playwright
+          python -m playwright install --with-deps chromium
+      - run: python scripts/update.py
+      - run: |
+          git config user.name "advisory-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data.json snapshots
+          git diff --cached --quiet || (git commit -m "Update advisory data" && git push)

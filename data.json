@@ -1,0 +1,328 @@
+{
+  "checked_at": "2026-11-16T09:10:00Z",
+  "errors": [],
+  "countries": [
+    {
+      "id": "uk",
+      "code": "UK",
+      "name": "United Kingdom",
+      "authority": "FCDO",
+      "lang": "English",
+      "mode": "auto",
+      "verified": "2026-11-16",
+      "url": "https://www.gov.uk/foreign-travel-advice/saudi-arabia",
+      "link_label": "GOV.UK travel advice",
+      "headline": "Against all but essential travel to most of the country",
+      "detail": "Against all travel within 10km of the Yemen border. Insurance may be invalid if you travel against advice. Some versions list only certain provinces, so confirm the current wording on GOV.UK.",
+      "public_updated_at": null,
+      "history": [
+        {
+          "date": "2026-10-10",
+          "kind": "crit",
+          "tag": "Escalation",
+          "title": "Missile strike at King Khalid International Airport, Riyadh",
+          "text": "FCDO advises against all but essential travel to every Saudi airport except Medina. Further attacks, disruption and cancellations are described as very likely. Later wording extends all-but-essential advice to the rest of the country."
+        },
+        {
+          "date": "2026-07-25",
+          "kind": "warn",
+          "tag": "Updated",
+          "title": "New guidance on Houthi missile and drone risk",
+          "text": "No travel within 10km of the Yemen border, all but essential travel 10 to 80km from it. Advice on sheltering during an attack. Insurance cover may be affected."
+        },
+        {
+          "date": "2026-03-06",
+          "kind": "crit",
+          "tag": "Escalation",
+          "title": "Eastern Province and Riyadh Province added",
+          "text": "All but essential travel advised against in both provinces, with continued missile and drone attacks reported."
+        },
+        {
+          "date": "2026-03-04",
+          "kind": "warn",
+          "tag": "Updated",
+          "title": "Stay-inside advice",
+          "text": "British nationals told to stay inside and take extra care because of missile and drone activity in the region."
+        },
+        {
+          "date": "2026-02-28",
+          "kind": "info",
+          "tag": "Baseline",
+          "title": "Heightened regional tension warning",
+          "text": "Against all travel to parts of the country (Yemen border). Travellers told to sign up for alerts and know where to shelter."
+        }
+      ]
+    },
+    {
+      "id": "us",
+      "code": "US",
+      "name": "United States",
+      "authority": "State Dept",
+      "lang": "English",
+      "mode": "auto",
+      "verified": "2026-11-16",
+      "url": "https://travel.state.gov/en/international-travel/travel-advisories/saudi-arabia.html",
+      "link_label": "travel.state.gov advisory",
+      "headline": "Reconsider travel",
+      "detail": "Yemen border region is Level 4: Do not travel. Cites missile and drone targeting, armed conflict, terrorism, exit bans and social media laws.",
+      "scale": {
+        "value": 3,
+        "max": 4,
+        "label": "Level"
+      },
+      "public_updated_at": null,
+      "history": [
+        {
+          "date": "2026-10-12",
+          "kind": "crit",
+          "tag": "Reissued",
+          "title": "Level 3 reissued with detention and exit-ban warnings",
+          "text": "Americans told not to photograph or share missile and drone interception or impact sites, after detentions. Yemen border stays Level 4."
+        },
+        {
+          "date": "2026-09-16",
+          "label": "Mid Sep 2026",
+          "kind": "warn",
+          "tag": "Reissued",
+          "title": "Level 3 reissued, reported 16 Sep",
+          "text": "Cites Iranian drone and missile targeting of American interests, armed conflict, terrorism, exit bans and local laws."
+        },
+        {
+          "date": "2026-08-30",
+          "kind": "info",
+          "tag": "Staffing",
+          "title": "Family members may rejoin US government staff",
+          "text": "Eased the earlier departure order for embassy and consulate families."
+        },
+        {
+          "date": "2026-03-13",
+          "kind": "warn",
+          "tag": "Updated",
+          "title": "Level unchanged, summary updated",
+          "text": "Government staff barred from non-essential travel to Qatif. Yemen border Level 4 for terrorism."
+        },
+        {
+          "date": "2026-03-03",
+          "kind": "crit",
+          "tag": "Raised",
+          "title": "Raised from Level 2 to Level 3",
+          "text": "Non-emergency US government staff authorised to leave Saudi Arabia."
+        }
+      ]
+    },
+    {
+      "id": "fr",
+      "code": "FR",
+      "name": "France",
+      "authority": "France Diplomatie",
+      "lang": "French",
+      "mode": "manual",
+      "verified": "2026-11-16",
+      "url": "https://www.diplomatie.gouv.fr/fr/information-par-pays/arabie-saoudite/conseils-aux-voyageurs-securite",
+      "link_label": "France Diplomatie, Conseils aux voyageurs",
+      "headline": "Advised against except for compelling reasons",
+      "detail": "Formally advised against visiting or transiting Riyadh, Jeddah and Dammam airports. The Yemen border zone (about 100km) is formally advised against.",
+      "scale": {
+        "value": 3,
+        "max": 4,
+        "names": [
+          "Green",
+          "Yellow",
+          "Orange",
+          "Red"
+        ]
+      },
+      "history": [
+        {
+          "date": "2026-10-12",
+          "kind": "crit",
+          "tag": "Raised",
+          "title": "Whole country moved to orange",
+          "text": "After the Houthi strikes on Riyadh airport, the ministry formally advised against visiting or connecting through the airports at Riyadh, Jeddah and Dammam. Other international airports may close or be disrupted."
+        },
+        {
+          "date": "2026-09-15",
+          "label": "Mid Sep 2026",
+          "kind": "warn",
+          "tag": "Tightened",
+          "title": "Advice against travel reinstated except for compelling reasons",
+          "text": "Najran, Abha, Khamis Mushait and Jizan formally advised against. Delays and disruption reported at Riyadh and Jeddah airports."
+        },
+        {
+          "date": "2026-06-24",
+          "kind": "info",
+          "tag": "Eased",
+          "title": "General advice against travel lifted",
+          "text": "Only the Yemen border area stayed formally advised against, as it was before the conflict."
+        }
+      ]
+    },
+    {
+      "id": "it",
+      "code": "IT",
+      "name": "Italy",
+      "authority": "Farnesina, Viaggiare Sicuri",
+      "lang": "Italian",
+      "mode": "manual",
+      "verified": "2026-11-16",
+      "url": "https://www.viaggiaresicuri.it/find-country/country/SAU",
+      "link_label": "Viaggiare Sicuri, Arabia Saudita",
+      "headline": "Weigh the need to travel carefully; avoid the Riyadh airport area",
+      "detail": "Italy gives written advice rather than a numbered level. The Gulf task force page asks travellers to assess carefully whether to travel to or through Saudi Arabia. I could not confirm the current Viaggiare Sicuri wording, so read it there before quoting.",
+      "history": [
+        {
+          "date": "2026-10-10",
+          "kind": "crit",
+          "tag": "Airport",
+          "title": "Avoid non-essential trips to Riyadh airport area",
+          "text": "After the attack on King Khalid airport, the Farnesina recommended avoiding non-essential movements toward the airport area and avoiding the airport for arrivals and departures."
+        },
+        {
+          "date": "2026-02-28",
+          "kind": "warn",
+          "tag": "Updated",
+          "title": "Viaggiare Sicuri advisory update",
+          "text": "The Jeddah consulate flagged an update citing the military escalation involving Iran. Check the official page for the exact wording."
+        }
+      ]
+    },
+    {
+      "id": "de",
+      "code": "DE",
+      "name": "Germany",
+      "authority": "Auswärtiges Amt",
+      "lang": "German",
+      "mode": "manual",
+      "verified": "2026-11-16",
+      "url": "https://www.auswaertiges-amt.de/de/202298",
+      "link_label": "Auswärtiges Amt, Reisehinweise",
+      "headline": "Travel warning (Reisewarnung) for the whole country",
+      "detail": "In force since 11 Oct 2026, with Riyadh airport singled out. Travel press reports that package trips can usually be cancelled free of charge, while flight-only bookings usually cannot. Status on the official page: 30 Oct 2026.",
+      "history": [
+        {
+          "date": "2026-10-30",
+          "label": "Status 30 Oct 2026",
+          "kind": "crit",
+          "tag": "Status",
+          "title": "Warning unchanged since 29 Oct",
+          "text": "Houthi attacks since early September across Riyadh, Asir, Jazan, Medina, Mecca, Najran and the Eastern Province. Riyadh airport is a regular target and flights at other airports are irregular."
+        },
+        {
+          "date": "2026-10-24",
+          "kind": "info",
+          "tag": "Airport",
+          "title": "Limited flights resume at Riyadh",
+          "text": "Saudi civil aviation authority announced a limited restart of civil flights by Saudi airlines, as noted on the German advice page."
+        },
+        {
+          "date": "2026-10-11",
+          "kind": "crit",
+          "tag": "Raised",
+          "title": "Whole-country travel warning reinstated",
+          "text": "Reason given: Houthi attacks on airports, mainly Riyadh and also Dammam."
+        },
+        {
+          "date": "2026-06-23",
+          "kind": "info",
+          "tag": "Eased",
+          "title": "Warning narrowed to the Yemen border",
+          "text": "New advice published; warnings for several Gulf states were lifted and Saudi Arabia kept a warning only for the border region with Yemen."
+        },
+        {
+          "date": "2026-02-28",
+          "kind": "crit",
+          "tag": "Raised",
+          "title": "Country-wide travel warning issued",
+          "text": "Issued on the evening of 28 Feb, with an urgent warning for the 30km strip along the Yemen border."
+        }
+      ]
+    }
+  ],
+  "map": {
+    "airports": [
+      {
+        "id": "ruh",
+        "name": "Riyadh King Khalid (RUH)",
+        "lon": 46.7,
+        "lat": 24.96,
+        "state": "crit",
+        "notes": {
+          "uk": "Struck by a missile on 10 Oct and still at risk of attack. FCDO advises against all but essential travel to Saudi airports.",
+          "us": "The embassy told Americans to avoid the airport and the surrounding area after the 10 Oct attacks.",
+          "fr": "Formally advised against visiting or connecting through the airport.",
+          "it": "Farnesina recommends avoiding non-essential trips to the airport area and avoiding the airport for arrivals and departures.",
+          "de": "Explicit warning against using the airport. Limited flights by Saudi airlines were due to resume from 24 Oct."
+        }
+      },
+      {
+        "id": "jed",
+        "name": "Jeddah King Abdulaziz (JED)",
+        "lon": 39.15,
+        "lat": 21.68,
+        "state": "warn",
+        "notes": {
+          "uk": "Covered by the advice against all but essential travel to Saudi airports.",
+          "us": "State Dept urged extreme caution at all major Saudi airports on 12 Oct.",
+          "fr": "Formally advised against visiting or connecting through the airport.",
+          "de": "Flights at airports other than Riyadh are described as partly irregular and risky."
+        }
+      },
+      {
+        "id": "dmm",
+        "name": "Dammam King Fahd (DMM)",
+        "lon": 49.8,
+        "lat": 26.47,
+        "state": "warn",
+        "notes": {
+          "uk": "Covered by the advice against all but essential travel to Saudi airports.",
+          "us": "State Dept urged extreme caution at all major Saudi airports on 12 Oct.",
+          "fr": "Formally advised against visiting or connecting through the airport.",
+          "de": "Reported as affected by recent attacks. Flights are partly irregular and risky."
+        }
+      },
+      {
+        "id": "med",
+        "name": "Medina Prince Mohammad (MED)",
+        "lon": 39.7,
+        "lat": 24.55,
+        "state": "ok",
+        "notes": {
+          "uk": "The one Saudi airport the FCDO leaves out of its all-but-essential advice."
+        }
+      },
+      {
+        "id": "abh",
+        "name": "Abha (AHB)",
+        "lon": 42.66,
+        "lat": 18.24,
+        "state": "warn",
+        "notes": {
+          "uk": "Named by the FCDO among locations under heightened threat.",
+          "fr": "The region (Abha, Khamis Mushait) is formally advised against."
+        }
+      },
+      {
+        "id": "jaz",
+        "name": "Jazan (GIZ)",
+        "lon": 42.59,
+        "lat": 16.9,
+        "state": "warn",
+        "notes": {
+          "uk": "Named by the FCDO among locations under heightened threat, close to the Yemen border.",
+          "fr": "The Jizan region is formally advised against."
+        }
+      },
+      {
+        "id": "njr",
+        "name": "Najran (EAM)",
+        "lon": 44.42,
+        "lat": 17.61,
+        "state": "warn",
+        "notes": {
+          "uk": "Named by the FCDO among locations under heightened threat, close to the Yemen border.",
+          "fr": "The Najran region is formally advised against."
+        }
+      }
+    ]
+  }
+}
