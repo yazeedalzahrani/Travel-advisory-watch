@@ -78,7 +78,12 @@ def update_us(d):
         pub = item.findtext("pubDate")
         if not pub:
             continue
-        when = parsedate_to_datetime(pub).astimezone(timezone.utc)
+        try:
+            when = parsedate_to_datetime(pub)
+        except (TypeError, ValueError):
+            # Some feeds omit the time, e.g. "Fri, 23 Oct 2026"
+            when = datetime.strptime(pub.strip()[:16], "%a, %d %b %Y").replace(tzinfo=timezone.utc)
+        when = when.astimezone(timezone.utc) if when.tzinfo else when.replace(tzinfo=timezone.utc)
         m = re.search(r"Level\s*(\d)", title)
         level = int(m.group(1)) if m else us.get("level")
         headline = title.split(" - ", 1)[-1]
