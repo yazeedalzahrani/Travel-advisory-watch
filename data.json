@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-16T13:40:05Z",
+  "checked_at": "2026-11-16T20:07:11Z",
   "errors": [],
   "countries": [
     {
@@ -60,7 +60,7 @@
           "text": "Against all travel to parts of the country (Yemen border). Travellers told to sign up for alerts and know where to shelter."
         }
       ],
-      "last_ok": "2026-11-16T13:39:50Z"
+      "last_ok": "2026-11-16T20:06:55Z"
     },
     {
       "id": "us",
@@ -126,7 +126,7 @@
           "text": "Non-emergency US government staff authorised to leave Saudi Arabia."
         }
       ],
-      "last_ok": "2026-11-16T13:39:51Z"
+      "last_ok": "2026-11-16T20:06:55Z"
     },
     {
       "id": "fr",
@@ -174,7 +174,7 @@
           "text": "Only the Yemen border area stayed formally advised against, as it was before the conflict."
         }
       ],
-      "last_ok": "2026-11-16T13:39:52Z",
+      "last_ok": "2026-11-16T20:06:56Z",
       "page_date": "13/10/2026"
     },
     {
@@ -187,9 +187,17 @@
       "verified": "2026-11-16",
       "url": "https://www.viaggiaresicuri.it/find-country/country/SAU",
       "link_label": "Viaggiare Sicuri, Arabia Saudita",
-      "headline": "Weigh the need to travel carefully; avoid the Riyadh airport area",
-      "detail": "Italy gives written advice rather than a numbered level. The Gulf task force page asks travellers to assess carefully whether to travel to or through Saudi Arabia. I could not confirm the current Viaggiare Sicuri wording, so read it there before quoting.",
+      "headline": "Arabia Saudita: Sicurezza - Aggiornamento.",
+      "detail": "Official notice dated 22.10.2026, copied automatically from the official page. Read the full text there.",
       "history": [
+        {
+          "stamp": "913e345bf355",
+          "date": "2026-10-22",
+          "kind": "warn",
+          "tag": "Official notice",
+          "title": "Arabia Saudita: Sicurezza - Aggiornamento.",
+          "text": "Official notice dated 22.10.2026. Open the official page for the full text."
+        },
         {
           "date": "2026-10-10",
           "kind": "crit",
@@ -205,7 +213,8 @@
           "text": "The Jeddah consulate flagged an update citing the military escalation involving Iran. Check the official page for the exact wording."
         }
       ],
-      "last_ok": "2026-11-16T13:39:57Z"
+      "last_ok": "2026-11-16T20:07:02Z",
+      "page_date": "22.10.2026"
     },
     {
       "id": "de",
@@ -266,7 +275,7 @@
         }
       ],
       "public_updated_at": "2026-11-09T13:37:35+00:00",
-      "last_ok": "2026-11-16T13:40:05Z"
+      "last_ok": "2026-11-16T20:07:11Z"
     },
     {
       "id": "es",
@@ -283,6 +292,14 @@
       "public_updated_at": null,
       "history": [
         {
+          "stamp": "ccd222daf47c",
+          "date": "2026-11-16",
+          "kind": "info",
+          "tag": "Page changed",
+          "title": "Official page wording changed",
+          "text": "New wording (original language): Albares anuncia la aprobación definitiva del asiento permanente de Ceuta en el Comité de las Regiones. Open the official page for the full text."
+        },
+        {
           "date": "2026-11-08",
           "kind": "warn",
           "tag": "In force",
@@ -297,7 +314,7 @@
           "text": "Spain's Saudi Arabia travel recommendations were last updated on 10 June 2026. Check the official page for the full wording."
         }
       ],
-      "last_ok": "2026-11-16T13:40:00Z"
+      "last_ok": "2026-11-16T20:07:06Z"
     },
     {
       "id": "ru",
@@ -321,7 +338,7 @@
           "text": "Russians were urged to refrain from tourist trips to the UAE, Kuwait, Bahrain, Qatar, Oman and Saudi Arabia until active fighting ends and flights and airports return to normal."
         }
       ],
-      "last_ok": "2026-11-16T13:40:01Z"
+      "last_ok": "2026-11-16T20:07:07Z"
     }
   ],
   "map": {
