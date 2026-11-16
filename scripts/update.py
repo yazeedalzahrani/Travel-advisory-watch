@@ -171,7 +171,7 @@ def fetch_lines(url):
     return lines
 
 
-def watch(d, cid, url, date_re=None):
+def watch(d, cid, url, date_re=None, notice_re=None):
     """Fetch an official page, record success, and log new wording since the last run."""
     c = country(d, cid)
     lines = fetch_lines(url)
@@ -181,6 +181,21 @@ def watch(d, cid, url, date_re=None):
         m = re.search(date_re, joined)
         if m:
             c["page_date"] = m.group(1)
+    if notice_re:
+        # Official banner: copy its date and wording as the headline, in the original language.
+        m = re.search(notice_re, joined)
+        if m:
+            notice_date, notice_text = m.group(1), m.group(2).strip()
+            c["headline"] = notice_text.title() if notice_text.isupper() else notice_text
+            c["detail"] = f"Official notice dated {notice_date}, copied automatically from the official page. Read the full text there."
+            c["page_date"] = notice_date
+            add_entry(c, {
+                "stamp": hashlib.sha1(notice_text.encode()).hexdigest()[:12],
+                "date": datetime.strptime(notice_date, "%d.%m.%Y").date().isoformat() if re.match(r"\d{2}\.\d{2}\.\d{4}$", notice_date) else datetime.now(timezone.utc).date().isoformat(),
+                "kind": "warn", "tag": "Official notice",
+                "title": notice_text.title() if notice_text.isupper() else notice_text,
+                "text": f"Official notice dated {notice_date}. Open the official page for the full text.",
+            })
     SNAP.mkdir(exist_ok=True)
     snap = SNAP / f"{cid}.txt"
     if snap.exists():
@@ -229,7 +244,8 @@ def main():
         ("GOV.UK", update_uk),
         ("travel.state.gov", update_us),
         ("France Diplomatie", lambda x: watch(x, "fr", FR_URL, r"[Dd]ernière (?:mise à jour|actualisation) le\s*:?\s*([0-9]{1,2} \S+ [0-9]{4}|[0-9]{2}/[0-9]{2}/[0-9]{4})")),
-        ("Viaggiare Sicuri", lambda x: watch(x, "it", IT_URL, r"[Aa]ggiornat[oa] (?:il|al)\s*:?\s*([0-9]{1,2}[ /.]\S+[ /.][0-9]{2,4})")),
+        ("Viaggiare Sicuri", lambda x: watch(x, "it", IT_URL, r"[Aa]ggiornat[oa] (?:il|al)\s*:?\s*([0-9]{1,2}[ /.]\S+[ /.][0-9]{2,4})",
+                                             notice_re=r"([0-9]{2}\.[0-9]{2}\.[0-9]{4})\n(ARABIA SAUDITA:[^\n]*)")),
         ("Exteriores Spain", lambda x: watch(x, "es", ES_URL, r"Vigentes a\s+([0-9]{1,2} de \S+ de [0-9]{4})")),
         ("Russian Embassy", lambda x: watch(x, "ru", RU_URL)),
         ("Auswaertiges Amt", lambda x: (update_de(x), watch(x, "de", DE_URL, r"Stand\s*-\s*([0-9]{2}\.[0-9]{2}\.[0-9]{4})"))),
