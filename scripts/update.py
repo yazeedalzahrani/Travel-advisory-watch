@@ -185,15 +185,24 @@ def watch(d, cid, url, date_re=None, notice_re=None):
         # Official banner: copy its date and wording as the headline, in the original language.
         m = re.search(notice_re, joined)
         if m:
-            notice_date, notice_text = m.group(1), m.group(2).strip()
-            c["headline"] = notice_text.title() if notice_text.isupper() else notice_text
+            # Named groups: "text" is the wording to show, "date" is its date as printed on the page.
+            notice_text, notice_date = m.group("text").strip(), m.group("date").strip()
+            title_text = notice_text.title() if notice_text.isupper() else notice_text
+            c["headline"] = title_text
             c["detail"] = f"Official notice dated {notice_date}, copied automatically from the official page. Read the full text there."
             c["page_date"] = notice_date
+            iso = None
+            for fmt in ("%d.%m.%Y", "%d/%m/%Y"):
+                try:
+                    iso = datetime.strptime(notice_date, fmt).date().isoformat()
+                    break
+                except ValueError:
+                    pass
             add_entry(c, {
                 "stamp": hashlib.sha1(notice_text.encode()).hexdigest()[:12],
-                "date": datetime.strptime(notice_date, "%d.%m.%Y").date().isoformat() if re.match(r"\d{2}\.\d{2}\.\d{4}$", notice_date) else datetime.now(timezone.utc).date().isoformat(),
+                "date": iso or datetime.now(timezone.utc).date().isoformat(),
                 "kind": "warn", "tag": "Official notice",
-                "title": notice_text.title() if notice_text.isupper() else notice_text,
+                "title": title_text,
                 "text": f"Official notice dated {notice_date}. Open the official page for the full text.",
             })
     SNAP.mkdir(exist_ok=True)
@@ -243,10 +252,12 @@ def main():
     sources = (
         ("GOV.UK", update_uk),
         ("travel.state.gov", update_us),
-        ("France Diplomatie", lambda x: watch(x, "fr", FR_URL, r"[Dd]ernière (?:mise à jour|actualisation) le\s*:?\s*([0-9]{1,2} \S+ [0-9]{4}|[0-9]{2}/[0-9]{2}/[0-9]{4})")),
+        ("France Diplomatie", lambda x: watch(x, "fr", FR_URL, r"[Dd]ernière (?:mise à jour|actualisation) le\s*:?\s*([0-9]{1,2} \S+ [0-9]{4}|[0-9]{2}/[0-9]{2}/[0-9]{4})",
+                                             notice_re=r"(?P<text>Date de mise à jour le : (?P<date>[0-9]{1,2} \S+ [0-9]{4}))")),
         ("Viaggiare Sicuri", lambda x: watch(x, "it", IT_URL, r"[Aa]ggiornat[oa] (?:il|al)\s*:?\s*([0-9]{1,2}[ /.]\S+[ /.][0-9]{2,4})",
-                                             notice_re=r"([0-9]{2}\.[0-9]{2}\.[0-9]{4})\n(ARABIA SAUDITA:[^\n]*)")),
-        ("Exteriores Spain", lambda x: watch(x, "es", ES_URL, r"Vigentes a\s+([0-9]{1,2} de \S+ de [0-9]{4})")),
+                                             notice_re=r"(?P<date>[0-9]{2}\.[0-9]{2}\.[0-9]{4})\n(?P<text>ARABIA SAUDITA:[^\n]*)")),
+        ("Exteriores Spain", lambda x: watch(x, "es", ES_URL, r"Vigentes a\s+([0-9]{1,2} de \S+ de [0-9]{4})",
+                                             notice_re=r"(?P<text>Recomendaciones vigentes a (?P<date>[0-9]{1,2} de [^\n]+?))\n")),
         ("Russian Embassy", lambda x: watch(x, "ru", RU_URL)),
         ("Auswaertiges Amt", lambda x: (update_de(x), watch(x, "de", DE_URL, r"Stand\s*-\s*([0-9]{2}\.[0-9]{2}\.[0-9]{4})"))),
     )
