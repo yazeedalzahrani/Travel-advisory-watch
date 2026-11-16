@@ -5,20 +5,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <title>Saudi Advisory Watch</title>
-<meta name="description" content="Unofficial summary of what the UK, US, France, Italy and Germany advise for travel to Saudi Arabia. Checked every six hours from official sources.">
+<meta name="description" content="Unofficial summary of what the UK, US, Spain, France, Italy, Germany and Russia advise for travel to Saudi Arabia. Checked every six hours from official sources.">
 <link rel="canonical" href="https://yazeedalzahrani.github.io/Travel-advisory-watch/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Saudi Advisory Watch">
 <meta property="og:title" content="Saudi Advisory Watch">
-<meta property="og:description" content="What the UK, US, France, Italy and Germany advise for travel to Saudi Arabia. Unofficial, updated every six hours.">
+<meta property="og:description" content="What the UK, US, Spain, France, Italy, Germany and Russia advise for travel to Saudi Arabia. Unofficial, updated every six hours.">
 <meta property="og:url" content="https://yazeedalzahrani.github.io/Travel-advisory-watch/">
 <meta property="og:image" content="https://yazeedalzahrani.github.io/Travel-advisory-watch/og.png">
 <meta property="og:image:width" content="2400">
 <meta property="og:image:height" content="1260">
-<meta property="og:image:alt" content="Saudi Advisory Watch: UK, US, France, Italy and Germany travel advisories for Saudi Arabia">
+<meta property="og:image:alt" content="Saudi Advisory Watch: UK, US, Spain, France, Italy, Germany and Russia travel advisories for Saudi Arabia">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Saudi Advisory Watch">
-<meta name="twitter:description" content="What the UK, US, France, Italy and Germany advise for travel to Saudi Arabia. Unofficial, updated every six hours.">
+<meta name="twitter:description" content="What the UK, US, Spain, France, Italy, Germany and Russia advise for travel to Saudi Arabia. Unofficial, updated every six hours.">
 <meta name="twitter:image" content="https://yazeedalzahrani.github.io/Travel-advisory-watch/og.png">
 <meta name="theme-color" content="#0b5d4b">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b1217'/%3E%3Ccircle cx='32' cy='32' r='12' fill='%23ff6b63'/%3E%3Ccircle cx='32' cy='32' r='22' fill='none' stroke='%234cc2a2' stroke-width='4'/%3E%3C/svg%3E">
@@ -240,7 +240,7 @@ li.latest { animation-name: slidein, glow; animation-duration: .55s, 2.6s; anima
   <header class="hero">
     <div class="radar" aria-hidden="true"><i></i><i></i><i></i><b></b></div>
     <h1>Saudi Advisory Watch</h1>
-    <p class="sub">What the UK, US, French, Italian and German governments have told their citizens about travel to Saudi Arabia in 2026, newest first.</p>
+    <p class="sub">What the UK, US, Spanish, French, Italian, German and Russian governments have told their citizens about travel to Saudi Arabia in 2026, newest first.</p>
     <p class="unofficial">Unofficial site. Not made by the Saudi Tourism Authority (STA).</p>
     <span class="asof" id="asof">Loading latest data</span>
     <p class="live err" id="err" hidden></p>
@@ -274,10 +274,10 @@ li.latest { animation-name: slidein, glow; animation-duration: .55s, 2.6s; anima
     <h2 id="lim-h">Limits of the automatic updates</h2>
     <ul>
       <li><strong>UK and US</strong> are read from official data feeds, so their status headline and level update by themselves.</li>
-      <li><strong>France, Italy and Germany</strong> are only watched for changes. When their page wording changes, a "Page changed" entry quotes the new text in its original language. The status headline, such as France's colour or Germany's warning, is still updated by hand.</li>
+      <li><strong>France, Italy, Germany and Spain</strong> are only watched for changes. When their page wording changes, a "Page changed" entry quotes the new text in its original language. The status headline, such as France's colour or Germany's warning, is still updated by hand.</li>
       <li><strong>Italy's page</strong> may need a browser to load. If a check fails, that card shows "Manual" instead of "Live".</li>
       <li>A card says "Live" only if its last successful check was within the past day.</li>
-      <li>Summaries written by hand are in English and may differ from the official wording. The map is schematic, with approximate outlines and distances.</li>
+      <li>Russia is summarised by hand from its Foreign Ministry statement. Summaries written by hand are in English and may differ from the official wording. The map is schematic, with approximate outlines and distances.</li>
       <li>Always open the official link on each card before you quote anything.</li>
     </ul>
   </section>
@@ -329,7 +329,9 @@ li.latest { animation-name: slidein, glow; animation-duration: .55s, 2.6s; anima
     } else if (h !== null) {
       txt = "Last live check " + fmt(c.last_ok) + ". The source has not been reachable since";
     } else {
-      txt = "Read from the official site on " + fmt(c.verified) + ". Live checks start once the site is deployed";
+      txt = c.mode === "manual" && !c.history.some(function (x) { return x.stamp; })
+        ? "Summary checked by hand on " + fmt(c.verified)
+        : "Read from the official site on " + fmt(c.verified);
     }
     return txt;
   }
