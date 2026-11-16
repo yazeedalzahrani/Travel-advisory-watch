@@ -104,6 +104,7 @@ SNAP = Path(__file__).resolve().parent.parent / "snapshots"
 FR_URL = "https://www.diplomatie.gouv.fr/fr/information-par-pays/arabie-saoudite/conseils-aux-voyageurs-securite"
 IT_URL = "https://www.viaggiaresicuri.it/find-country/country/SAU"
 DE_URL = "https://www.auswaertiges-amt.de/de/202298"
+RU_URL = "https://www.kdmid.ru/docs/saudi-arabia/information-about-the-country/"
 ES_URL = "https://www.exteriores.gob.es/es/ServiciosAlCiudadano/Paginas/Detalle-recomendaciones-de-viaje.aspx?trc=arabia-saudi"
 
 
@@ -230,6 +231,7 @@ def main():
         ("France Diplomatie", lambda x: watch(x, "fr", FR_URL, r"[Dd]ernière (?:mise à jour|actualisation) le\s*:?\s*([0-9]{1,2} \S+ [0-9]{4}|[0-9]{2}/[0-9]{2}/[0-9]{4})")),
         ("Viaggiare Sicuri", lambda x: watch(x, "it", IT_URL, r"[Aa]ggiornat[oa] (?:il|al)\s*:?\s*([0-9]{1,2}[ /.]\S+[ /.][0-9]{2,4})")),
         ("Exteriores Spain", lambda x: watch(x, "es", ES_URL, r"Vigentes a\s+([0-9]{1,2} de \S+ de [0-9]{4})")),
+        ("Russian Embassy", lambda x: watch(x, "ru", RU_URL)),
         ("Auswaertiges Amt", lambda x: (update_de(x), watch(x, "de", DE_URL, r"Stand\s*-\s*([0-9]{2}\.[0-9]{2}\.[0-9]{4})"))),
     )
     for name, fn in sources:
