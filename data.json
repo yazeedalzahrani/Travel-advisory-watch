@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-16T20:07:11Z",
+  "checked_at": "2026-11-16T20:12:42Z",
   "errors": [],
   "countries": [
     {
@@ -60,7 +60,7 @@
           "text": "Against all travel to parts of the country (Yemen border). Travellers told to sign up for alerts and know where to shelter."
         }
       ],
-      "last_ok": "2026-11-16T20:06:55Z"
+      "last_ok": "2026-11-16T20:12:30Z"
     },
     {
       "id": "us",
@@ -126,7 +126,7 @@
           "text": "Non-emergency US government staff authorised to leave Saudi Arabia."
         }
       ],
-      "last_ok": "2026-11-16T20:06:55Z"
+      "last_ok": "2026-11-16T20:12:31Z"
     },
     {
       "id": "fr",
@@ -138,8 +138,8 @@
       "verified": "2026-11-16",
       "url": "https://www.diplomatie.gouv.fr/fr/information-par-pays/arabie-saoudite/conseils-aux-voyageurs-securite",
       "link_label": "France Diplomatie, Conseils aux voyageurs",
-      "headline": "Advised against except for compelling reasons",
-      "detail": "Formally advised against visiting or transiting Riyadh, Jeddah and Dammam airports. The Yemen border zone (about 100km) is formally advised against.",
+      "headline": "Date de mise à jour le : 10 novembre 2026",
+      "detail": "Official notice dated 10 novembre 2026, copied automatically from the official page. Read the full text there.",
       "scale": {
         "value": 3,
         "max": 4,
@@ -151,6 +151,14 @@
         ]
       },
       "history": [
+        {
+          "stamp": "b50f44dea4aa",
+          "date": "2026-11-16",
+          "kind": "warn",
+          "tag": "Official notice",
+          "title": "Date de mise à jour le : 10 novembre 2026",
+          "text": "Official notice dated 10 novembre 2026. Open the official page for the full text."
+        },
         {
           "date": "2026-10-12",
           "kind": "crit",
@@ -174,8 +182,8 @@
           "text": "Only the Yemen border area stayed formally advised against, as it was before the conflict."
         }
       ],
-      "last_ok": "2026-11-16T20:06:56Z",
-      "page_date": "13/10/2026"
+      "last_ok": "2026-11-16T20:12:31Z",
+      "page_date": "10 novembre 2026"
     },
     {
       "id": "it",
@@ -213,7 +221,7 @@
           "text": "The Jeddah consulate flagged an update citing the military escalation involving Iran. Check the official page for the exact wording."
         }
       ],
-      "last_ok": "2026-11-16T20:07:02Z",
+      "last_ok": "2026-11-16T20:12:36Z",
       "page_date": "22.10.2026"
     },
     {
@@ -275,7 +283,7 @@
         }
       ],
       "public_updated_at": "2026-11-09T13:37:35+00:00",
-      "last_ok": "2026-11-16T20:07:11Z"
+      "last_ok": "2026-11-16T20:12:42Z"
     },
     {
       "id": "es",
@@ -287,8 +295,8 @@
       "verified": "2026-11-16",
       "url": "https://www.exteriores.gob.es/es/ServiciosAlCiudadano/Paginas/Detalle-recomendaciones-de-viaje.aspx?trc=arabia-saudi",
       "link_label": "exteriores.gob.es, Recomendaciones de viaje",
-      "headline": "Postpone travel until further notice",
-      "detail": "Spain advises postponing travel to Saudi Arabia until further notice. Airspace is open. The page says its recommendations are in force as of 8 Nov 2026 and were last updated on 10 June 2026.",
+      "headline": "Recomendaciones vigentes a 16 de noviembre de 2026",
+      "detail": "Official notice dated 16 de noviembre de 2026, copied automatically from the official page. Read the full text there.",
       "public_updated_at": null,
       "history": [
         {
@@ -298,6 +306,14 @@
           "tag": "Page changed",
           "title": "Official page wording changed",
           "text": "New wording (original language): Albares anuncia la aprobación definitiva del asiento permanente de Ceuta en el Comité de las Regiones. Open the official page for the full text."
+        },
+        {
+          "stamp": "c0d8115adacc",
+          "date": "2026-11-16",
+          "kind": "warn",
+          "tag": "Official notice",
+          "title": "Recomendaciones vigentes a 16 de noviembre de 2026",
+          "text": "Official notice dated 16 de noviembre de 2026. Open the official page for the full text."
         },
         {
           "date": "2026-11-08",
@@ -314,7 +330,8 @@
           "text": "Spain's Saudi Arabia travel recommendations were last updated on 10 June 2026. Check the official page for the full wording."
         }
       ],
-      "last_ok": "2026-11-16T20:07:06Z"
+      "last_ok": "2026-11-16T20:12:39Z",
+      "page_date": "16 de noviembre de 2026"
     },
     {
       "id": "ru",
@@ -338,7 +355,7 @@
           "text": "Russians were urged to refrain from tourist trips to the UAE, Kuwait, Bahrain, Qatar, Oman and Saudi Arabia until active fighting ends and flights and airports return to normal."
         }
       ],
-      "last_ok": "2026-11-16T20:07:07Z"
+      "last_ok": "2026-11-16T20:12:40Z"
     }
   ],
   "map": {
