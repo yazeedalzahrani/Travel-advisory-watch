@@ -419,22 +419,6 @@
      "text": "Indians planning travel to Saudi Arabia, including for Umrah, were told to take account of ongoing disruption at Saudi airports and possible cancellations."
     }
    ]
-  },
-  {
-   "id": "ae",
-   "code": "AE",
-   "name": "UAE",
-   "group": "GCC",
-   "authority": "UAE Ministry of Foreign Affairs",
-   "lang": "Arabic / English",
-   "mode": "manual",
-   "verified": "2026-11-17",
-   "url": "https://www.mofa.gov.ae/en/travel-updates?Code=SAU",
-   "link_label": "UAE Ministry of Foreign Affairs, Saudi Arabia travel page",
-   "headline": "Entry and health guidance for UAE nationals",
-   "detail": "The ministry's Saudi Arabia page covers entry, visa and healthcare guidance for UAE citizens. It does not give a travel-risk level.",
-   "public_updated_at": null,
-   "history": []
   }
  ],
  "map": {
