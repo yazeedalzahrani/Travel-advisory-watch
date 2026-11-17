@@ -605,8 +605,8 @@ li.latest { animation-name: slidein, glow; animation-duration: .55s, 2.6s; anima
     var now = {};
     countries.forEach(function (c) { now[c.code] = (c.public_updated_at || c.verified || "") + "|" + (c.headline || ""); });
     var saved = null;
-    try { saved = JSON.parse(localStorage.getItem("sav-advice-fp") || "null"); } catch (e) {}
-    try { localStorage.setItem("sav-advice-fp", JSON.stringify(now)); } catch (e) {}
+    try { saved = JSON.parse(localStorage.getItem("sav-watch-fp") || "null"); } catch (e) {}
+    try { localStorage.setItem("sav-watch-fp", JSON.stringify(now)); } catch (e) {}
     if (!saved) return;
     var changed = countries.filter(function (c) { return saved[c.code] !== now[c.code]; });
     if (changed.length) showUpdate(changed.map(function (c) { return c.name; }));
