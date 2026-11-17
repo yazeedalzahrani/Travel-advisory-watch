@@ -1,0 +1,9 @@
+{
+  "checked_at": "2026-11-17T17:00:00+03:00",
+  "flights": [
+    {"country": "UK", "airline": "Riyadh Air", "from": "London Heathrow (LHR)", "to": "Riyadh (RUH)", "status": "Daily; 9x weekly from 2 Nov 2026", "level": "ok", "date": "2026-11-02", "verified": true, "source": "https://www.rustourismnews.com/?p=147792"},
+    {"country": "UK", "airline": "British Airways", "from": "London Heathrow (LHR)", "to": "Riyadh (RUH)", "status": "Return 11 Jan 2027 (17 Nov report)", "level": "warn", "date": "2026-11-17", "verified": false, "source": "https://www.thenationalnews.com/travel/2026/11/06/saudi-arabia-flight-cancellations-which-airlines-are-suspending-services-and-until-when/"},
+    {"country": "FR", "airline": "Air France", "from": "Paris (CDG)", "to": "Riyadh (RUH)", "status": "Return 11 Jan 2027 (17 Nov report)", "level": "warn", "date": "2026-11-17", "verified": false, "source": "https://www.thenationalnews.com/travel/2026/11/06/saudi-arabia-flight-cancellations-which-airlines-are-suspending-services-and-until-when/"},
+    {"country": "DE", "airline": "Lufthansa Group", "from": "Frankfurt (FRA)", "to": "Riyadh (RUH)", "status": "Return 8 Jan 2027 (17 Nov report)", "level": "warn", "date": "2026-11-17", "verified": false, "source": "https://www.thenationalnews.com/travel/2026/11/06/saudi-arabia-flight-cancellations-which-airlines-are-suspending-services-and-until-when/"}
+  ]
+}
