@@ -336,12 +336,15 @@ li.latest { animation-name: slidein, glow; animation-duration: .55s, 2.6s; anima
     return txt;
   }
 
+  var FLAGS = { UK: "\u{1F1EC}\u{1F1E7}", US: "\u{1F1FA}\u{1F1F8}", FR: "\u{1F1EB}\u{1F1F7}", IT: "\u{1F1EE}\u{1F1F9}", DE: "\u{1F1E9}\u{1F1EA}", ES: "\u{1F1EA}\u{1F1F8}", RU: "\u{1F1F7}\u{1F1FA}", CN: "\u{1F1E8}\u{1F1F3}", IN: "\u{1F1EE}\u{1F1F3}" };
+  function flag(code) { return FLAGS[code] || ""; }
+
   function tile(c, i) {
     var t = el("div", "tile");
     t.dataset.id = c.id;
     t.style.animationDelay = (i * 0.1) + "s";
     var who = el("p", "who");
-    who.appendChild(el("span", "code", c.code));
+    who.appendChild(el("span", "code", flag(c.code) + " " + c.code));
     who.appendChild(document.createTextNode(c.name + " · " + c.authority));
     t.appendChild(who);
     if (c.scale) {
@@ -369,7 +372,7 @@ li.latest { animation-name: slidein, glow; animation-duration: .55s, 2.6s; anima
   function column(c) {
     var s = el("section", "col");
     s.dataset.id = c.id;
-    var h = el("h2", "", c.name + " updates");
+    var h = el("h2", "", flag(c.code) + " " + c.name + " updates");
     h.appendChild(el("span", "chip", c.lang));
     var hs = hoursSince(c);
     h.appendChild(el("span", "chip " + (hs !== null && hs < 30 ? "live" : "manual"), hs !== null && hs < 30 ? "Live" : "Manual"));
@@ -470,7 +473,7 @@ li.latest { animation-name: slidein, glow; animation-duration: .55s, 2.6s; anima
       cols.classList.toggle("single", id !== "all" && !isMap);
       if (scroll) (isMap ? mapEl : statusEl).scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
     }
-    var opts = [{ id: "all", label: "All" }].concat(d.countries.map(function (c) { return { id: c.id, label: c.code }; })).concat([{ id: "map", label: "Map" }]);
+    var opts = [{ id: "all", label: "All" }].concat(d.countries.map(function (c) { return { id: c.id, label: flag(c.code) + " " + c.code }; })).concat([{ id: "map", label: "Map" }]);
     opts.forEach(function (o, i) {
       var b = el("button", "", o.label);
       b.type = "button"; b.dataset.id = o.id;
