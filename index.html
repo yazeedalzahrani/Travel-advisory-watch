@@ -620,7 +620,7 @@ li.latest { animation-name: slidein, glow; animation-duration: .55s, 2.6s; anima
     if (!saved) return;
     var changed = countries.filter(function (c) { return saved[c.code] !== now[c.code]; });
     if (!changed.length) return;
-    // Quietly add to the missed list (no pop-up, no sound); the bell shows it.
+    // Add to the missed list for the bell, and pop up with the ding now.
     var list = getUnseen();
     changed.forEach(function (c) {
       list = list.filter(function (x) { return x.code !== c.code; });
@@ -628,6 +628,7 @@ li.latest { animation-name: slidein, glow; animation-duration: .55s, 2.6s; anima
     });
     setUnseen(list);
     showUnseenBadge();
+    showUpdate(changed.map(function (c) { return c.name; }));
   }
   function getUnseen() {
     try { return JSON.parse(localStorage.getItem("sav-watch-unseen") || "[]"); } catch (e) { return []; }
