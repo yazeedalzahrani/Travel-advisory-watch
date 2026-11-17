@@ -246,6 +246,9 @@ li.latest { animation-name: slidein, glow; animation-duration: .55s, 2.6s; anima
 .term.closed{background:rgba(217,130,91,.15)}
 .terms p{font-size:.78rem;margin:8px 0 0;opacity:.75}
 @media (max-width:520px){.tgrid{grid-template-columns:repeat(2,1fr)}}
+  #welcomepop { position:fixed; top:18px; right:18px; z-index:200; max-width:340px; background:#1b2330; color:#f2f4f6; border:1px solid #3aa0ff; border-radius:10px; padding:12px 36px 12px 14px; box-shadow:0 6px 20px rgba(0,0,0,.35); font-size:14px; line-height:1.4; }
+  #welcomepop strong { display:block; margin-bottom:4px; }
+  #welcomepop button { position:absolute; top:6px; right:8px; background:none; border:0; color:inherit; font-size:18px; cursor:pointer; }
 </style>
 </head>
 <body>
@@ -539,6 +542,54 @@ li.latest { animation-name: slidein, glow; animation-duration: .55s, 2.6s; anima
     .catch(function () {
       document.getElementById("asof").textContent = "Could not load data.json. Open this page from your host, not from a local file.";
     });
+})();
+</script>
+<script>
+// Welcome pop-up and soft ding for each new visit in this browser tab.
+(function () {
+  var audioCtx = null, dingPending = false;
+  function playDing() {
+    try {
+      var AC = window.AudioContext || window.webkitAudioContext; if (!AC) return;
+      if (!audioCtx) audioCtx = new AC();
+      var ctx = audioCtx, o = ctx.createOscillator(), g = ctx.createGain();
+      o.type = "sine"; o.frequency.value = 880;
+      g.gain.setValueAtTime(0.0001, ctx.currentTime);
+      g.gain.exponentialRampToValueAtTime(0.06, ctx.currentTime + 0.02);
+      g.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.9);
+      o.connect(g); g.connect(ctx.destination); o.start(); o.stop(ctx.currentTime + 0.95);
+    } catch (e) {}
+  }
+  // Browsers block sound until the visitor interacts, so wait for the first tap, click or key press.
+  function ding() {
+    if (audioCtx && audioCtx.state === "running") { playDing(); return; }
+    dingPending = true;
+  }
+  function unlockAudio() {
+    try {
+      var AC = window.AudioContext || window.webkitAudioContext; if (!AC) return;
+      if (!audioCtx) audioCtx = new AC();
+      if (audioCtx.state !== "running") audioCtx.resume();
+    } catch (e) {}
+    if (dingPending) { dingPending = false; playDing(); }
+  }
+  ["pointerdown", "keydown", "touchstart"].forEach(function (ev) {
+    document.addEventListener(ev, unlockAudio, { passive: true });
+  });
+  function showWelcome() {
+    try {
+      if (sessionStorage.getItem("sav-welcomed")) return;
+      sessionStorage.setItem("sav-welcomed", "1");
+    } catch (e) {}
+    var box = document.createElement("div");
+    box.id = "welcomepop"; box.setAttribute("role", "status");
+    box.innerHTML = '<strong>Welcome</strong><span>Saudi Advisory Watch: government travel advice for Saudi Arabia, checked automatically.</span><button type="button" aria-label="Close">×</button>';
+    box.querySelector("button").addEventListener("click", function () { box.remove(); });
+    document.body.appendChild(box);
+    setTimeout(function () { box.remove(); }, 15000);
+    ding();
+  }
+  showWelcome();
 })();
 </script>
 </body>
