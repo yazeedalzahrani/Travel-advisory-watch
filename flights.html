@@ -8,6 +8,8 @@ header{padding:28px 32px 10px} h1{font-family:var(--serif);font-weight:400;font-
 .tabs{display:flex;flex-wrap:wrap;gap:8px;padding:14px 32px;border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--bg);z-index:2}
 .tab{background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:999px;padding:8px 14px;font:inherit;font-size:14px;cursor:pointer}
 .tab:hover{border-color:#3a4a5a} .tab.on{background:var(--accent);color:#14110a;border-color:var(--accent);font-weight:600}
+.tablewrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+@media (max-width:1024px){.tabs{position:static}}
 .tabs.airlines{position:static;border-bottom:1px solid var(--line);padding-top:10px}
 .tab .n{margin-left:6px;font-size:12px;opacity:.7}
 main{padding:20px 32px 40px}
@@ -39,8 +41,8 @@ footer{padding:16px 32px;border-top:1px solid var(--line);color:var(--muted);fon
 <li>Foreign airlines at Riyadh: 26 of 28 flown; Air Arabia returned to Riyadh.</li>
 <li>Return dates 2027: KLM 5 Jan, Lufthansa and ITA 8 Jan, BA and Air France 11 Jan, Cathay 1 Feb.</li>
 </ul></div>
-<table><thead><tr><th>Country</th><th>Airline</th><th>From</th><th>To</th><th>Status</th><th>Date found</th><th>Source</th></tr></thead>
-<tbody id="rows"></tbody></table>
+<div class="tablewrap"><table><thead><tr><th>Country</th><th>Airline</th><th>From</th><th>To</th><th>Status</th><th>Date found</th><th>Source</th></tr></thead>
+<tbody id="rows"></tbody></table></div>
 <p class="empty" id="empty">No flights found for this country in this check.</p>
 </main>
 <footer>Example layout with data checked by hand. Statuses change often; check each airline before you travel.</footer>
