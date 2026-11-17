@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-17T14:21:24Z",
+  "checked_at": "2026-11-17T22:52:31Z",
   "errors": [],
   "countries": [
     {
@@ -60,7 +60,7 @@
           "text": "Against all travel to parts of the country (Yemen border). Travellers told to sign up for alerts and know where to shelter."
         }
       ],
-      "last_ok": "2026-11-17T14:21:07Z"
+      "last_ok": "2026-11-17T22:52:17Z"
     },
     {
       "id": "us",
@@ -126,7 +126,7 @@
           "text": "Non-emergency US government staff authorised to leave Saudi Arabia."
         }
       ],
-      "last_ok": "2026-11-17T14:21:07Z"
+      "last_ok": "2026-11-17T22:52:17Z"
     },
     {
       "id": "fr",
@@ -182,7 +182,7 @@
           "text": "Only the Yemen border area stayed formally advised against, as it was before the conflict."
         }
       ],
-      "last_ok": "2026-11-17T14:21:11Z",
+      "last_ok": "2026-11-17T22:52:18Z",
       "page_date": "10 novembre 2026"
     },
     {
@@ -221,7 +221,7 @@
           "text": "The Jeddah consulate flagged an update citing the military escalation involving Iran. Check the official page for the exact wording."
         }
       ],
-      "last_ok": "2026-11-17T14:21:17Z",
+      "last_ok": "2026-11-17T22:52:25Z",
       "page_date": "22.10.2026"
     },
     {
@@ -291,7 +291,7 @@
         }
       ],
       "public_updated_at": "2026-11-09T13:37:35+00:00",
-      "last_ok": "2026-11-17T14:21:24Z"
+      "last_ok": "2026-11-17T22:52:31Z"
     },
     {
       "id": "es",
@@ -314,6 +314,14 @@
           "tag": "Official notice",
           "title": "Recomendaciones vigentes a 17 de noviembre de 2026",
           "text": "Official notice dated 17 de noviembre de 2026. Open the official page for the full text."
+        },
+        {
+          "stamp": "ca02ac3f86ea",
+          "date": "2026-11-17",
+          "kind": "info",
+          "tag": "Page changed",
+          "title": "Official page wording changed",
+          "text": "New wording (original language): Exteriores pone en marcha el primer Programa de Diplomáticos Visitantes de Países Candidatos a la Unión Europea. Open the official page for the full text."
         },
         {
           "stamp": "ccd222daf47c",
@@ -346,7 +354,7 @@
           "text": "Spain's Saudi Arabia travel recommendations were last updated on 10 June 2026. Check the official page for the full wording."
         }
       ],
-      "last_ok": "2026-11-17T14:21:19Z",
+      "last_ok": "2026-11-17T22:52:27Z",
       "page_date": "17 de noviembre de 2026"
     },
     {
@@ -371,7 +379,7 @@
           "text": "Russians were urged to refrain from tourist trips to the UAE, Kuwait, Bahrain, Qatar, Oman and Saudi Arabia until active fighting ends and flights and airports return to normal."
         }
       ],
-      "last_ok": "2026-11-17T14:21:21Z"
+      "last_ok": "2026-11-17T22:52:29Z"
     },
     {
       "id": "cn",
