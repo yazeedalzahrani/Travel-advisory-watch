@@ -647,7 +647,7 @@
    "from": "Riyadh (RUH)",
    "to": "New York JFK",
    "level": "warn",
-   "status": "Cut from 15 weekly to 1; most service moved to Jeddah",
+   "status": "Cut from 15 weekly to 1; most service moved to Jeddah (unverified)",
    "date": "Mid-Nov 2026",
    "source": ""
   },
@@ -660,7 +660,7 @@
    "from": "Jeddah (JED)",
    "to": "New York JFK",
    "level": "ok",
-   "status": "Operating (SV021 scheduled and flying)",
+   "status": "Operating (SV021 scheduled and flying) (unverified)",
    "date": "Mid-Nov 2026",
    "source": ""
   },
@@ -673,7 +673,7 @@
    "from": "Jeddah (JED)",
    "to": "Washington Dulles (IAD)",
    "level": "warn",
-   "status": "Route not cancelled but schedule inconsistent; a 11 Nov flight was not scheduled",
+   "status": "Route not cancelled but schedule inconsistent; a 11 Nov flight was not scheduled (unverified)",
    "date": "Mid-Nov 2026",
    "source": ""
   },
@@ -686,7 +686,7 @@
    "from": "Jeddah (JED)",
    "to": "Los Angeles (LAX)",
    "level": "crit",
-   "status": "Seasonal; not operating in November (latest data June 2026)",
+   "status": "Seasonal; not operating in November (latest data June 2026) (unverified)",
    "date": "Jun 2026",
    "source": ""
   },
@@ -699,7 +699,7 @@
    "from": "Any Saudi airport",
    "to": "Miami (MIA)",
    "level": "crit",
-   "status": "No scheduled direct flights",
+   "status": "No scheduled direct flights (unverified)",
    "date": "Sep 2026",
    "source": ""
   }
