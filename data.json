@@ -434,6 +434,32 @@
           "fr": "Formally advised against visiting or connecting through the airport.",
           "it": "Farnesina recommends avoiding non-essential trips to the airport area and avoiding the airport for arrivals and departures.",
           "de": "Explicit warning against using the airport. Limited flights by Saudi airlines were due to resume from 24 Oct."
+        },
+        "terminals": {
+          "as_of": "27 Oct 2026",
+          "items": [
+            {
+              "code": "T1",
+              "label": "Domestic",
+              "state": "open"
+            },
+            {
+              "code": "T2",
+              "label": "International, national carriers",
+              "state": "open"
+            },
+            {
+              "code": "T3",
+              "label": "Closed",
+              "state": "closed"
+            },
+            {
+              "code": "T4",
+              "label": "Closed",
+              "state": "closed"
+            }
+          ],
+          "note": "GACA still clears every flight individually. The airport's published schedule covers national carriers only."
         }
       },
       {

@@ -237,6 +237,15 @@ li.latest { animation-name: slidein, glow; animation-duration: .55s, 2.6s; anima
 .disclaimer { margin: 16px 0 0; padding: 14px 16px; border: 1px solid var(--warn); background: var(--warn-bg); border-radius: 10px; font-size: .88rem; color: var(--ink); }
 .flbtn{display:inline-block;padding:9px 16px;border-radius:999px;background:#c9a45c;color:#14110a;font-weight:600;text-decoration:none}
 @media (max-width: 1024px) { .seg { position: static; } }
+.terms{margin:10px 0 12px;padding:12px;border:1px solid var(--line);border-radius:10px}
+.terms h3{font-size:.95rem;margin:0 0 8px}
+.tgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.term{border-radius:8px;padding:8px;text-align:center;font-size:.78rem}
+.term b{display:block;font-size:1.1rem}
+.term.open{background:rgba(61,220,132,.15)}
+.term.closed{background:rgba(217,130,91,.15)}
+.terms p{font-size:.78rem;margin:8px 0 0;opacity:.75}
+@media (max-width:520px){.tgrid{grid-template-columns:repeat(2,1fr)}}
 </style>
 </head>
 <body>
@@ -438,6 +447,21 @@ li.latest { animation-name: slidein, glow; animation-duration: .55s, 2.6s; anima
     var names = { uk: "UK", us: "US", fr: "FR", it: "IT", de: "DE" };
     function show(a, pin) {
       title.textContent = a.name;
+      var oldT = document.getElementById("d-terms"); if (oldT) oldT.remove();
+      if (a.terminals) {
+        var tb = document.createElement("div"); tb.id = "d-terms"; tb.className = "terms";
+        var th = document.createElement("h3"); th.textContent = "Terminals in use from " + a.terminals.as_of; tb.appendChild(th);
+        var tg = document.createElement("div"); tg.className = "tgrid";
+        a.terminals.items.forEach(function (t) {
+          var c = document.createElement("div"); c.className = "term " + t.state;
+          var code = document.createElement("b"); code.textContent = t.code;
+          var lab = document.createElement("span"); lab.textContent = t.label;
+          c.appendChild(code); c.appendChild(lab); tg.appendChild(c);
+        });
+        tb.appendChild(tg);
+        var tn = document.createElement("p"); tn.textContent = a.terminals.note; tb.appendChild(tn);
+        title.insertAdjacentElement("afterend", tb);
+      }
       ul.textContent = "";
       Object.keys(names).forEach(function (k) {
         if (!a.notes[k]) return;

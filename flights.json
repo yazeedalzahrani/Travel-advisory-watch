@@ -638,5 +638,80 @@
    "date": "Nov 2026",
    "source": ""
   }
- ]
+ ],
+ "returns": [
+  {
+   "airlines": "Royal Jordanian, Gulf Air, Qatar Airways, Oman Air, MEA, Jazeera, Nile Air, Badr, PIA, Air Cairo, SyrianAir, Fly Jinnah, AirSial, Air Arabia",
+   "date": "Back now",
+   "level": "ok",
+   "note": "Already flying to Riyadh"
+  },
+  {
+   "airlines": "airblue",
+   "date": "16 Nov 2026",
+   "level": "ok",
+   "note": ""
+  },
+  {
+   "airlines": "Kuwait Airways, EgyptAir",
+   "date": "20 Nov 2026",
+   "level": "warn",
+   "note": ""
+  },
+  {
+   "airlines": "Turkish Airlines",
+   "date": "21 Nov 2026",
+   "level": "warn",
+   "note": ""
+  },
+  {
+   "airlines": "flydubai, Emirates",
+   "date": "28 Nov 2026",
+   "level": "warn",
+   "note": ""
+  },
+  {
+   "airlines": "Etihad, Air India, Air India Express, IndiGo, Akasa, US-Bangla, SriLankan (1 Dec), SalamAir (3 Dec)",
+   "date": "Dec 2026",
+   "level": "warn",
+   "note": ""
+  },
+  {
+   "airlines": "KLM",
+   "date": "5 Jan 2027",
+   "level": "warn",
+   "note": ""
+  },
+  {
+   "airlines": "Lufthansa, ITA Airways",
+   "date": "8 Jan 2027",
+   "level": "warn",
+   "note": "Earlier 27 Oct list said 19 Nov; the 17 Nov report gives 8 Jan"
+  },
+  {
+   "airlines": "British Airways, Air France",
+   "date": "11 Jan 2027",
+   "level": "warn",
+   "note": ""
+  },
+  {
+   "airlines": "Cathay Pacific",
+   "date": "1 Feb 2027",
+   "level": "warn",
+   "note": ""
+  },
+  {
+   "airlines": "Philippine Airlines, Biman",
+   "date": "Date TBA",
+   "level": "crit",
+   "note": "Biman was listed for 1 Nov in the 27 Oct report"
+  },
+  {
+   "airlines": "Akasa Air",
+   "date": "No Riyadh flights on sale",
+   "level": "crit",
+   "note": ""
+  }
+ ],
+ "returns_source": "Flightradar24 / Google Flights, 17 Nov 2026 report (v30)"
 }

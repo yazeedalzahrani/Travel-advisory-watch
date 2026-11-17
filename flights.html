@@ -25,6 +25,7 @@ td a{color:var(--accent)}
 footer{padding:16px 32px;border-top:1px solid var(--line);color:var(--muted);font-size:12px}
 @media (max-width:820px){ table,thead,tbody,tr,td,th{display:block} thead{display:none} tr{border-bottom:1px solid var(--line);padding:8px 0} td{border:0;padding:4px 14px} header,main,.tabs{padding-left:16px;padding-right:16px} }
 .alogo{height:22px;max-width:72px;object-fit:contain;vertical-align:middle;margin-right:6px;background:none;padding:0}
+.rethead{font-size:20px;font-weight:400;font-family:var(--serif);margin:28px 0 8px}
 </style></head><body>
 <div class="note" role="note"><strong>UNOFFICIAL SUMMARY.</strong> Not made by the Saudi Tourism Authority (STA). Check the official source before you travel.</div>
 <header><p style="margin:0 0 8px"><a href="index.html" style="color:var(--accent)">← Saudi Advisory Watch</a></p><h1>Flights to Saudi Arabia</h1><p>Choose a country to see its flights to Saudi Arabia, with status, date and source.</p></header>
@@ -43,6 +44,12 @@ footer{padding:16px 32px;border-top:1px solid var(--line);color:var(--muted);fon
 </ul></div>
 <div class="tablewrap"><table><thead><tr><th>Country</th><th>Airline</th><th>From</th><th>To</th><th>Status</th><th>Date found</th><th>Source</th></tr></thead>
 <tbody id="rows"></tbody></table></div>
+<h2 class="rethead">Foreign airlines returning to Riyadh</h2>
+<div class="tablewrap"><table>
+<thead><tr><th>Date</th><th>Airlines</th><th>Note</th></tr></thead>
+<tbody id="returns"></tbody>
+</table></div>
+<p class="muted" id="retsrc" style="font-size:12px"></p>
 <p class="empty" id="empty">No flights found for this country in this check.</p>
 </main>
 <footer>Example layout with data checked by hand. Statuses change often; check each airline before you travel.</footer>
@@ -87,6 +94,11 @@ footer{padding:16px 32px;border-top:1px solid var(--line);color:var(--muted);fon
   airBar.addEventListener('click',function(e){var b=e.target.closest('button'); if(b){airline=b.dataset.a; apply();}});
   fetch('flights.json').then(function(r){return r.json();}).then(function(d){
     render(d.flights); apply();
+    var rr = d.returns || [];
+    document.getElementById('returns').innerHTML = rr.map(function(r){
+      return '<tr><td><span class="pill '+esc(r.level)+'">'+esc(r.date)+'</span></td><td>'+esc(r.airlines)+'</td><td class="muted">'+esc(r.note||'')+'</td></tr>';
+    }).join('');
+    document.getElementById('retsrc').textContent = 'Source: ' + (d.returns_source || '');
   }).catch(function(){ empty.textContent='Could not load flights.json.'; empty.style.display='block'; });
 })();
 </script>
