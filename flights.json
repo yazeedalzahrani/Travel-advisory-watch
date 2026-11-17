@@ -779,7 +779,10 @@
   }
  ],
  "returns_source": "Flightradar24 / Google Flights, 17 Nov 2026 report (v30)",
- "notes": {
-  "US_saudia_source": "Shared summary, mid-Nov 2026 (unverified)"
- }
+ "notes": [
+  {
+   "text": "Most Riyadh (RUH) flights have to stop in Jeddah (JED).",
+   "label": "Unverified, shared in chat"
+  }
+ ]
 }
