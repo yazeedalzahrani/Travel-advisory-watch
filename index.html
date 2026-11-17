@@ -177,6 +177,8 @@ li.latest { animation-name: slidein, glow; animation-duration: .55s, 2.6s; anima
 .cols { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
 .cols.single { max-width: 640px; }
 .tile .code { display: inline-block; font-weight: 600; font-size: .75rem; letter-spacing: .06em; padding: 2px 8px; border-radius: 6px; background: var(--bg); border: 1px solid var(--line); color: var(--ink); margin-right: 8px; }
+.topnote { position: sticky; top: 0; z-index: 40; background: var(--warn-bg); color: var(--ink); border-bottom: 1px solid var(--warn); padding: 8px 16px; font-size: .85rem; text-align: center; }
+.tile .meta a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
 .tile .meta { margin-top: 10px; font-size: .78rem; color: var(--muted); }
 .chip { display: inline-block; font-size: .7rem; padding: 1px 8px; border-radius: 999px; border: 1px solid var(--line); color: var(--muted); margin-left: 6px; vertical-align: 2px; }
 .seg { flex-wrap: wrap; border-radius: 18px; }
@@ -236,6 +238,7 @@ li.latest { animation-name: slidein, glow; animation-duration: .55s, 2.6s; anima
 </style>
 </head>
 <body>
+<div class="topnote" role="note">Unofficial site. Not made by the Saudi Tourism Authority (STA). For information only; check the official source before you travel.</div>
 <div class="wrap">
   <header class="hero">
     <div class="radar" aria-hidden="true"><i></i><i></i><i></i><b></b></div>
@@ -366,6 +369,13 @@ li.latest { animation-name: slidein, glow; animation-duration: .55s, 2.6s; anima
     }
     t.appendChild(el("p", "", c.detail));
     t.appendChild(el("p", "meta", liveMeta(c)));
+    var tsrc = el("p", "meta");
+    var tl = el("a", "", "Official source: " + c.authority + " ↗");
+    tl.href = c.url; tl.target = "_blank"; tl.rel = "noopener";
+    tl.addEventListener("click", function (e) { e.stopPropagation(); });
+    tsrc.appendChild(tl);
+    tsrc.appendChild(document.createTextNode(" · Source date: " + (c.page_date || fmt(c.verified))));
+    t.appendChild(tsrc);
     return t;
   }
 
@@ -381,6 +391,7 @@ li.latest { animation-name: slidein, glow; animation-duration: .55s, 2.6s; anima
     var a = el("a", "", c.link_label);
     a.href = c.url; a.target = "_blank"; a.rel = "noopener";
     src.appendChild(a);
+    src.appendChild(document.createTextNode(" · Source date: " + (c.page_date || fmt(c.verified))));
     s.appendChild(src);
     var ol = el("ol");
     c.history.slice().sort(function (a, b) { return a.date < b.date ? 1 : -1; }).forEach(function (h, idx) {
