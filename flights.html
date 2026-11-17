@@ -26,6 +26,7 @@ footer{padding:16px 32px;border-top:1px solid var(--line);color:var(--muted);fon
 <div class="note" role="note"><strong>UNOFFICIAL SUMMARY.</strong> Not made by the Saudi Tourism Authority (STA). Check the official source before you travel.</div>
 <header><p style="margin:0 0 8px"><a href="index.html" style="color:var(--accent)">← Saudi Advisory Watch</a></p><h1>Flights to Saudi Arabia</h1><p>Choose a country to see its flights to Saudi Arabia, with status, date and source.</p></header>
 <nav class="tabs" aria-label="Filter by country"><button class="tab on" data-c="all" type="button">All<span class="n"></span></button><button class="tab" data-c="UK" type="button">🇬🇧 UK<span class="n"></span></button><button class="tab" data-c="US" type="button">🇺🇸 US<span class="n"></span></button><button class="tab" data-c="FR" type="button">🇫🇷 FR<span class="n"></span></button><button class="tab" data-c="IT" type="button">🇮🇹 IT<span class="n"></span></button><button class="tab" data-c="DE" type="button">🇩🇪 DE<span class="n"></span></button><button class="tab" data-c="ES" type="button">🇪🇸 ES<span class="n"></span></button><button class="tab" data-c="RU" type="button">🇷🇺 RU<span class="n"></span></button><button class="tab" data-c="CN" type="button">🇨🇳 CN<span class="n"></span></button><button class="tab" data-c="IN" type="button">🇮🇳 IN<span class="n"></span></button></nav>
+<nav class="tabs airlines" id="airlines" aria-label="Filter by airline"></nav>
 <main>
 <div class="statuscard" style="margin:16px 0;padding:14px 16px;border:1px solid var(--line,#2a3440);border-radius:10px;background:var(--card,#151c24)">
 <h3 style="margin:0 0 8px;font-size:15px">Airline status, 17 Nov 2026 (Flightradar24 / Google Flights report, v30)</h3>
@@ -46,33 +47,43 @@ footer{padding:16px 32px;border-top:1px solid var(--line);color:var(--muted);fon
 (function(){
   var esc=function(t){return String(t==null?'':t).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});};
   var tbody=document.getElementById('rows'), empty=document.getElementById('empty');
-  var tabs=document.querySelectorAll('.tab'), rows=[];
-  function badge(f){
-    if(f.logo) return '<img src="'+esc(f.logo)+'" alt="'+esc(f.airline)+' logo" style="height:22px;max-width:72px;object-fit:contain;vertical-align:middle;margin-right:8px">';
-    return f.code?'<span class="badge">'+esc(f.code)+'</span>':'';
+  var tabs=document.querySelectorAll('.tab'), airBar=document.getElementById('airlines');
+  var rows=[], country='all', airline='all';
+  function logo(f){
+    if(f.logo) return '<img src="'+esc(f.logo)+'" alt="'+esc(f.airline)+'" title="'+esc(f.airline)+'" style="height:24px;max-width:80px;object-fit:contain;vertical-align:middle">';
+    return '<span class="badge" title="'+esc(f.airline)+'">'+esc(f.code||f.airline.slice(0,2).toUpperCase())+'</span>';
+  }
+  function apply(){
+    var shown=0;
+    rows.forEach(function(r){
+      var on=(country==='all'||r.dataset.c===country)&&(airline==='all'||r.dataset.a===airline);
+      r.style.display=on?'':'none'; if(on) shown++;
+    });
+    empty.style.display=shown?'none':'block';
+    tabs.forEach(function(t){t.classList.toggle('on',t.dataset.c===country);});
+    airBar.querySelectorAll('button').forEach(function(b){b.classList.toggle('on',b.dataset.a===airline);});
   }
   function render(list){
     tbody.innerHTML=list.map(function(f){
-      return '<tr data-c="'+esc(f.country)+'"><td><span class="flag">'+esc(f.flag)+'</span></td>'+
-        '<td>'+badge(f)+'<b>'+esc(f.airline)+'</b></td>'+
+      return '<tr data-c="'+esc(f.country)+'" data-a="'+esc(f.airline)+'"><td><span class="flag">'+esc(f.flag)+'</span></td>'+
+        '<td>'+logo(f)+'</td>'+
         '<td><b>'+esc(f.from)+'</b></td><td><b>'+esc(f.to)+'</b></td>'+
         '<td><span class="pill '+esc(f.level)+'">'+esc(f.status)+'</span></td>'+
         '<td>'+esc(f.date)+'</td>'+
         '<td>'+(f.source?'<a href="'+esc(f.source)+'" target="_blank" rel="noopener">Source ↗</a>':'')+'</td></tr>';
     }).join('');
-    rows=document.querySelectorAll('#rows tr');
+    rows=Array.prototype.slice.call(document.querySelectorAll('#rows tr'));
     var counts={}; rows.forEach(function(r){counts[r.dataset.c]=(counts[r.dataset.c]||0)+1;});
     tabs.forEach(function(t){var n=t.dataset.c==='all'?rows.length:(counts[t.dataset.c]||0); t.querySelector('.n').textContent=n;});
+    var names=[]; list.forEach(function(f){ if(names.indexOf(f.airline)<0) names.push(f.airline); });
+    airBar.innerHTML=['all'].concat(names).map(function(n){
+      return '<button class="tab" type="button" data-a="'+esc(n)+'">'+(n==='all'?'All airlines':esc(n))+'</button>';
+    }).join('');
   }
-  function show(c){
-    var shown=0;
-    rows.forEach(function(r){var on=(c==='all'||r.dataset.c===c); r.style.display=on?'':'none'; if(on) shown++;});
-    empty.style.display=shown?'none':'block';
-    tabs.forEach(function(t){t.classList.toggle('on',t.dataset.c===c);});
-  }
-  tabs.forEach(function(t){t.addEventListener('click',function(){show(t.dataset.c);});});
+  tabs.forEach(function(t){t.addEventListener('click',function(){country=t.dataset.c; apply();});});
+  airBar.addEventListener('click',function(e){var b=e.target.closest('button'); if(b){airline=b.dataset.a; apply();}});
   fetch('flights.json').then(function(r){return r.json();}).then(function(d){
-    render(d.flights); show('all');
+    render(d.flights); apply();
   }).catch(function(){ empty.textContent='Could not load flights.json.'; empty.style.display='block'; });
 })();
 </script>
