@@ -246,9 +246,9 @@ li.latest { animation-name: slidein, glow; animation-duration: .55s, 2.6s; anima
 .term.closed{background:rgba(217,130,91,.15)}
 .terms p{font-size:.78rem;margin:8px 0 0;opacity:.75}
 @media (max-width:520px){.tgrid{grid-template-columns:repeat(2,1fr)}}
-  #welcomepop { position:fixed; top:18px; right:18px; z-index:200; max-width:340px; background:#1b2330; color:#f2f4f6; border:1px solid #3aa0ff; border-radius:10px; padding:12px 36px 12px 14px; box-shadow:0 6px 20px rgba(0,0,0,.35); font-size:14px; line-height:1.4; }
-  #welcomepop strong { display:block; margin-bottom:4px; }
-  #welcomepop button { position:absolute; top:6px; right:8px; background:none; border:0; color:inherit; font-size:18px; cursor:pointer; }
+  #welcomepop, #updatepop { position:fixed; top:18px; right:18px; z-index:200; max-width:340px; background:#1b2330; color:#f2f4f6; border:1px solid #3aa0ff; border-radius:10px; padding:12px 36px 12px 14px; box-shadow:0 6px 20px rgba(0,0,0,.35); font-size:14px; line-height:1.4; }
+  #welcomepop strong, #updatepop strong { display:block; margin-bottom:4px; }
+  #welcomepop button, #updatepop button { position:absolute; top:6px; right:8px; background:none; border:0; color:inherit; font-size:18px; cursor:pointer; }
 </style>
 </head>
 <body>
@@ -589,7 +589,33 @@ li.latest { animation-name: slidein, glow; animation-duration: .55s, 2.6s; anima
     setTimeout(function () { box.remove(); }, 15000);
     ding();
   }
+  function showUpdate(names) {
+    var old = document.getElementById("updatepop"); if (old) old.remove();
+    var box = document.createElement("div");
+    box.id = "updatepop"; box.setAttribute("role", "status");
+    box.innerHTML = '<strong>Advice updated</strong><span></span><button type="button" aria-label="Close">×</button>';
+    box.querySelector("span").textContent = "New update: " + names.join(", ") + ". Open the page to read it.";
+    box.querySelector("button").addEventListener("click", function () { box.remove(); });
+    document.body.appendChild(box);
+    setTimeout(function () { box.remove(); }, 15000);
+    ding();
+  }
+  // Compares each country's latest update with the last visit in this browser and pops up any change.
+  function checkUpdates(countries) {
+    var now = {};
+    countries.forEach(function (c) { now[c.code] = (c.public_updated_at || c.verified || "") + "|" + (c.headline || ""); });
+    var saved = null;
+    try { saved = JSON.parse(localStorage.getItem("sav-advice-fp") || "null"); } catch (e) {}
+    try { localStorage.setItem("sav-advice-fp", JSON.stringify(now)); } catch (e) {}
+    if (!saved) return;
+    var changed = countries.filter(function (c) { return saved[c.code] !== now[c.code]; });
+    if (changed.length) showUpdate(changed.map(function (c) { return c.name; }));
+  }
   showWelcome();
+  fetch("data.json", { cache: "no-cache" })
+    .then(function (r) { return r.ok ? r.json() : null; })
+    .then(function (d) { if (d && d.countries) checkUpdates(d.countries); })
+    .catch(function () {});
 })();
 </script>
 </body>
