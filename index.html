@@ -456,21 +456,26 @@ li.latest { animation-name: slidein, glow; animation-duration: .55s, 2.6s; anima
     var seg = document.getElementById("seg");
     d.countries.forEach(function (c, i) {
       status.appendChild(tile(c, i));
+      status.lastChild.dataset.group = c.group || c.code;
       cols.appendChild(column(c));
+      cols.lastChild.dataset.group = c.group || c.code;
     });
+    // Group buttons, in the order the groups first appear in the data
+    var groupIds = [];
+    d.countries.forEach(function (c) { var g = c.group || c.code; if (groupIds.indexOf(g) < 0) groupIds.push(g); });
     function select(id, scroll) {
       var isMap = id === "map";
       var mapEl = document.getElementById("mapcard");
       var statusEl = document.getElementById("status");
       seg.querySelectorAll("button").forEach(function (x) { x.setAttribute("aria-pressed", x.dataset.id === id ? "true" : "false"); });
       document.querySelectorAll("#status .tile, #cols .col").forEach(function (n) {
-        n.hidden = isMap || !(id === "all" || n.dataset.id === id);
+        n.hidden = isMap || !(id === "all" || n.dataset.group === id);
       });
       mapEl.hidden = !isMap;
       cols.classList.toggle("single", id !== "all" && !isMap);
       if (scroll) (isMap ? mapEl : statusEl).scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
     }
-    var opts = [{ id: "all", label: "All" }].concat(d.countries.map(function (c) { return { id: c.id, label: c.code }; })).concat([{ id: "map", label: "Map" }]);
+    var opts = [{ id: "all", label: "All" }].concat(groupIds.map(function (g) { return { id: g, label: g }; })).concat([{ id: "map", label: "Map" }]);
     opts.forEach(function (o, i) {
       var b = el("button", "", o.label);
       b.type = "button"; b.dataset.id = o.id;
@@ -481,8 +486,8 @@ li.latest { animation-name: slidein, glow; animation-duration: .55s, 2.6s; anima
     status.querySelectorAll(".tile").forEach(function (tl) {
       tl.tabIndex = 0; tl.setAttribute("role", "button");
       tl.setAttribute("aria-label", "Show " + tl.dataset.id.toUpperCase() + " updates");
-      tl.addEventListener("click", function () { select(tl.dataset.id, true); });
-      tl.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); select(tl.dataset.id, true); } });
+      tl.addEventListener("click", function () { select(tl.dataset.group, true); });
+      tl.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); select(tl.dataset.group, true); } });
     });
     var t = new Date(d.checked_at);
     document.getElementById("asof").textContent = "Last checked " + fmt(d.checked_at) + ", " +
