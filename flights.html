@@ -34,7 +34,11 @@ footer{padding:16px 32px;border-top:1px solid var(--line);color:var(--muted);fon
 .st summary::-webkit-details-marker{display:none}
 .stxt{margin-top:6px;font-size:13px;max-width:320px;line-height:1.4}
 @media (max-width:820px){.retsec{margin:0 16px}}
-#airlines .tab#retbtn{margin-left:auto}
+#airlines .tab#retbtn{margin-left:auto;background:#123b31;color:#7ef0c4;border:1.5px solid #34d399;font-weight:700;box-shadow:0 0 0 0 rgba(52,211,153,.55);animation:retpulse 2.2s ease-out infinite}
+#airlines .tab#retbtn:hover{background:#17493c}
+#airlines .tab#retbtn.on{background:#34d399;color:#0b1a14;animation:none}
+@keyframes retpulse{0%{box-shadow:0 0 0 0 rgba(52,211,153,.55)}70%{box-shadow:0 0 0 9px rgba(52,211,153,0)}100%{box-shadow:0 0 0 0 rgba(52,211,153,0)}}
+@media (prefers-reduced-motion:reduce){#airlines .tab#retbtn{animation:none}}
 [hidden]{display:none !important}
 </style></head><body>
 <div class="note" role="note"><strong>UNOFFICIAL SUMMARY.</strong> Not made by the Saudi Tourism Authority (STA). Check the official source before you travel.</div>
@@ -100,7 +104,7 @@ footer{padding:16px 32px;border-top:1px solid var(--line);color:var(--muted);fon
     var names=[]; list.forEach(function(f){ if(names.indexOf(f.airline)<0) names.push(f.airline); });
     airBar.innerHTML=['all'].concat(names).map(function(n){
       return '<button class="tab" type="button" data-a="'+esc(n)+'">'+(n==='all'?'All airlines':esc(n))+'</button>';
-    }).join('')+'<button class="tab" id="retbtn" type="button" aria-expanded="false">Foreign airlines returning to Riyadh</button>';
+    }).join('')+'<button class="tab" id="retbtn" type="button" aria-expanded="false">✈ Foreign airlines returning to Riyadh</button>';
     document.getElementById('retbtn').addEventListener('click',function(){ returnsMode(document.getElementById('retwrap').hidden); });
   }
   tabs.forEach(function(t){t.addEventListener('click',function(){country=t.dataset.c; apply();});});
@@ -111,7 +115,7 @@ footer{padding:16px 32px;border-top:1px solid var(--line);color:var(--muted);fon
     document.querySelector('nav.tabs[aria-label="Filter by country"]').hidden=on;
     fn.hidden=on; fw.hidden=on; empty.hidden=true;
     rw.hidden=!on; rs.hidden=!on;
-    rb.textContent=on?'← Back to all flights':'Foreign airlines returning to Riyadh';
+    rb.textContent=on?'← Back to all flights':'✈ Foreign airlines returning to Riyadh';
     airBar.querySelectorAll('button[data-a]').forEach(function(x){x.hidden=on;});
     rb.setAttribute('aria-expanded',on?'true':'false');
   }
