@@ -6,6 +6,8 @@ import html
 import json
 import re
 from html.parser import HTMLParser
+import os
+import urllib.parse
 import urllib.request
 import xml.etree.ElementTree as ET
 from datetime import datetime, timezone
@@ -223,6 +225,55 @@ def watch(d, cid, url, date_re=None, notice_re=None):
             })
     snap.write_text(joined, encoding="utf-8")
 
+# --- Spanish to English for the Spain card -------------------------------
+# 1) Fixed phrases for the standard wording (no key needed).
+# 2) If DEEPL_API_KEY is set in the workflow, DeepL translates any remaining Spanish.
+ES_PHRASES = [
+    ("Recomendaciones vigentes a", "Current recommendations as of"),
+    ("Detalle recomendaciones de viaje", "Travel recommendations detail"),
+    ("Aviso general sobre las Recomendaciones de Viaje", "General notice on travel recommendations"),
+]
+ES_MONTHS = {"enero": "January", "febrero": "February", "marzo": "March", "abril": "April", "mayo": "May",
+             "junio": "June", "julio": "July", "agosto": "August", "septiembre": "September",
+             "octubre": "October", "noviembre": "November", "diciembre": "December"}
+ES_MARKERS = re.compile(r"\b(de|vigentes|recomendaciones|Recomendaciones|viaje|Arabia|Saudí)\b")
+
+
+def translate_es(text):
+    """Return English for a Spanish snippet, or the text unchanged if it isn't Spanish."""
+    if not text or not ES_MARKERS.search(text):
+        return text
+    out = text
+    for es, en in ES_PHRASES:
+        out = out.replace(es, en)
+    out = re.sub(r"\b([0-9]{1,2}) de (" + "|".join(ES_MONTHS) + r") de ([0-9]{4})",
+                 lambda m: f"{m.group(1)} {ES_MONTHS[m.group(2)]} {m.group(3)}", out)
+    if ES_MARKERS.search(out) and os.environ.get("DEEPL_API_KEY"):
+        try:
+            key = os.environ["DEEPL_API_KEY"]
+            host = "api-free.deepl.com" if key.endswith(":fx") else "api.deepl.com"
+            body = urllib.parse.urlencode({"text": out, "source_lang": "ES", "target_lang": "EN-GB"}).encode()
+            req = urllib.request.Request(f"https://{host}/v2/translate", data=body, headers={
+                "Authorization": f"DeepL-Auth-Key {key}", "Content-Type": "application/x-www-form-urlencoded"})
+            with urllib.request.urlopen(req, timeout=30) as r:
+                out = json.loads(r.read())["translations"][0]["text"]
+        except Exception:
+            pass  # keep the phrase-translated text if DeepL is unavailable
+    return out
+
+
+def label_es_country(d):
+    """Show the English headline; keep the Spanish original and say it was machine-translated."""
+    c = country(d, "es")
+    original = c.get("headline", "")
+    if not ES_MARKERS.search(original):
+        return
+    c["headline_es"] = original
+    c["headline"] = translate_es(original)
+    c["detail"] = ("Automatic translation from Spanish. Official notice copied from the official page; "
+                   "read the original Spanish text there.")
+
+
 DE_API = "https://www.auswaertiges-amt.de/opendata/travelwarning"
 DE_ID = "202298"  # Saudi Arabia content id
 
@@ -258,6 +309,7 @@ def main():
                                              notice_re=r"(?P<date>[0-9]{2}\.[0-9]{2}\.[0-9]{4})\n(?P<text>ARABIA SAUDITA:[^\n]*)")),
         ("Exteriores Spain", lambda x: watch(x, "es", ES_URL, r"Vigentes a\s+([0-9]{1,2} de \S+ de [0-9]{4})",
                                              notice_re=r"(?P<text>Recomendaciones vigentes a (?P<date>[0-9]{1,2} de [^\n]+?))\n")),
+        ("Spain translation", label_es_country),
         ("Russian Embassy", lambda x: watch(x, "ru", RU_URL)),
         ("Auswaertiges Amt", lambda x: (update_de(x), watch(x, "de", DE_URL, r"Stand\s*-\s*([0-9]{2}\.[0-9]{2}\.[0-9]{4})"))),
     )
