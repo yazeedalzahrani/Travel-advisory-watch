@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-19T14:24:31Z",
+  "checked_at": "2026-11-19T22:40:07Z",
   "errors": [],
   "countries": [
     {
@@ -68,7 +68,7 @@
           "text": "Against all travel to parts of the country (Yemen border). Travellers told to sign up for alerts and know where to shelter."
         }
       ],
-      "last_ok": "2026-11-19T14:24:19Z"
+      "last_ok": "2026-11-19T22:39:54Z"
     },
     {
       "id": "us",
@@ -142,7 +142,7 @@
           "text": "Non-emergency US government staff authorised to leave Saudi Arabia."
         }
       ],
-      "last_ok": "2026-11-19T14:24:19Z"
+      "last_ok": "2026-11-19T22:39:54Z"
     },
     {
       "id": "fr",
@@ -198,7 +198,7 @@
           "text": "Only the Yemen border area stayed formally advised against, as it was before the conflict."
         }
       ],
-      "last_ok": "2026-11-19T14:24:19Z",
+      "last_ok": "2026-11-19T22:39:55Z",
       "page_date": "10 novembre 2026"
     },
     {
@@ -237,7 +237,7 @@
           "text": "The Jeddah consulate flagged an update citing the military escalation involving Iran. Check the official page for the exact wording."
         }
       ],
-      "last_ok": "2026-11-19T14:24:24Z",
+      "last_ok": "2026-11-19T22:40:00Z",
       "page_date": "22.10.2026"
     },
     {
@@ -307,7 +307,7 @@
         }
       ],
       "public_updated_at": "2026-11-09T13:37:35+00:00",
-      "last_ok": "2026-11-19T14:24:31Z"
+      "last_ok": "2026-11-19T22:40:07Z"
     },
     {
       "id": "es",
@@ -402,7 +402,7 @@
           "text": "Spain's Saudi Arabia travel recommendations were last updated on 10 June 2026. Check the official page for the full wording."
         }
       ],
-      "last_ok": "2026-11-19T14:24:27Z",
+      "last_ok": "2026-11-19T22:40:02Z",
       "page_date": "19 de noviembre de 2026",
       "headline_es": "Recomendaciones vigentes a 19 de noviembre de 2026"
     },
@@ -428,7 +428,7 @@
           "text": "Russians were urged to refrain from tourist trips to the UAE, Kuwait, Bahrain, Qatar, Oman and Saudi Arabia until active fighting ends and flights and airports return to normal."
         }
       ],
-      "last_ok": "2026-11-19T14:24:28Z"
+      "last_ok": "2026-11-19T22:40:04Z"
     },
     {
       "id": "cn",
