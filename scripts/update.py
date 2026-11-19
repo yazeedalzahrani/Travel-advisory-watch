@@ -92,7 +92,10 @@ def update_us(d):
         us["headline"] = headline
         if level and us.get("scale"):
             us["scale"]["value"] = level
-        us["public_updated_at"] = when.isoformat()
+        # Keep a later date set by hand (e.g. a US Embassy security alert) instead of going back to the feed date.
+        prev = us.get("public_updated_at")
+        if not prev or prev < when.isoformat():
+            us["public_updated_at"] = when.isoformat()
         add_entry(us, {
             "stamp": when.isoformat(), "date": when.date().isoformat(),
             "kind": "crit" if level and level >= 4 else "warn" if level == 3 else "info",
