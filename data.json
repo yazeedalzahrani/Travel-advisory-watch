@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-19T22:40:07Z",
+  "checked_at": "2026-11-20T07:09:58Z",
   "errors": [],
   "countries": [
     {
@@ -68,7 +68,7 @@
           "text": "Against all travel to parts of the country (Yemen border). Travellers told to sign up for alerts and know where to shelter."
         }
       ],
-      "last_ok": "2026-11-19T22:39:54Z"
+      "last_ok": "2026-11-20T07:09:02Z"
     },
     {
       "id": "us",
@@ -142,7 +142,7 @@
           "text": "Non-emergency US government staff authorised to leave Saudi Arabia."
         }
       ],
-      "last_ok": "2026-11-19T22:39:54Z"
+      "last_ok": "2026-11-20T07:09:03Z"
     },
     {
       "id": "fr",
@@ -198,7 +198,7 @@
           "text": "Only the Yemen border area stayed formally advised against, as it was before the conflict."
         }
       ],
-      "last_ok": "2026-11-19T22:39:55Z",
+      "last_ok": "2026-11-20T07:09:04Z",
       "page_date": "10 novembre 2026"
     },
     {
@@ -237,7 +237,7 @@
           "text": "The Jeddah consulate flagged an update citing the military escalation involving Iran. Check the official page for the exact wording."
         }
       ],
-      "last_ok": "2026-11-19T22:40:00Z",
+      "last_ok": "2026-11-20T07:09:09Z",
       "page_date": "22.10.2026"
     },
     {
@@ -307,7 +307,7 @@
         }
       ],
       "public_updated_at": "2026-11-09T13:37:35+00:00",
-      "last_ok": "2026-11-19T22:40:07Z"
+      "last_ok": "2026-11-20T07:09:58Z"
     },
     {
       "id": "es",
@@ -323,6 +323,14 @@
       "detail": "Automatic translation from Spanish. Official notice copied from the official page; read the original Spanish text there.",
       "public_updated_at": null,
       "history": [
+        {
+          "stamp": "a191d7db8e0e",
+          "date": "2026-11-20",
+          "kind": "info",
+          "tag": "Page changed",
+          "title": "Official page wording changed",
+          "text": "New wording (original language): The web server behind this site didn't finish answering our edge in time. The problem is on the origin, not on your device or your connection. / If you're visiting this site: / wait a few minutes and reload the page. (+1 more lines). Open the official page for the full text."
+        },
         {
           "stamp": "aa1b4a86825a",
           "date": "2026-11-19",
@@ -402,7 +410,7 @@
           "text": "Spain's Saudi Arabia travel recommendations were last updated on 10 June 2026. Check the official page for the full wording."
         }
       ],
-      "last_ok": "2026-11-19T22:40:02Z",
+      "last_ok": "2026-11-20T07:09:53Z",
       "page_date": "19 de noviembre de 2026",
       "headline_es": "Recomendaciones vigentes a 19 de noviembre de 2026"
     },
@@ -428,7 +436,7 @@
           "text": "Russians were urged to refrain from tourist trips to the UAE, Kuwait, Bahrain, Qatar, Oman and Saudi Arabia until active fighting ends and flights and airports return to normal."
         }
       ],
-      "last_ok": "2026-11-19T22:40:04Z"
+      "last_ok": "2026-11-20T07:09:55Z"
     },
     {
       "id": "cn",
