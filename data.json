@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-23T15:56:31Z",
+  "checked_at": "2026-11-24T04:45:31Z",
   "errors": [],
   "countries": [
     {
@@ -68,7 +68,7 @@
           "text": "Against all travel to parts of the country (Yemen border). Travellers told to sign up for alerts and know where to shelter."
         }
       ],
-      "last_ok": "2026-11-23T15:56:16Z"
+      "last_ok": "2026-11-24T04:45:19Z"
     },
     {
       "id": "us",
@@ -142,7 +142,7 @@
           "text": "Non-emergency US government staff authorised to leave Saudi Arabia."
         }
       ],
-      "last_ok": "2026-11-23T15:56:16Z"
+      "last_ok": "2026-11-24T04:45:19Z"
     },
     {
       "id": "fr",
@@ -198,7 +198,7 @@
           "text": "Only the Yemen border area stayed formally advised against, as it was before the conflict."
         }
       ],
-      "last_ok": "2026-11-23T15:56:18Z",
+      "last_ok": "2026-11-24T04:45:20Z",
       "page_date": "10 novembre 2026"
     },
     {
@@ -245,7 +245,7 @@
           "text": "The Jeddah consulate flagged an update citing the military escalation involving Iran. Check the official page for the exact wording."
         }
       ],
-      "last_ok": "2026-11-23T15:56:23Z",
+      "last_ok": "2026-11-24T04:45:25Z",
       "page_date": "20.11.2026"
     },
     {
@@ -331,7 +331,7 @@
         }
       ],
       "public_updated_at": "2026-11-20T16:19:17+00:00",
-      "last_ok": "2026-11-23T15:56:31Z"
+      "last_ok": "2026-11-24T04:45:31Z"
     },
     {
       "id": "es",
@@ -343,10 +343,26 @@
       "verified": "2026-11-16",
       "url": "https://www.exteriores.gob.es/es/ServiciosAlCiudadano/Paginas/Detalle-recomendaciones-de-viaje.aspx?trc=arabia-saudi",
       "link_label": "exteriores.gob.es, Recomendaciones de viaje",
-      "headline": "Current recommendations as of 23 November 2026",
+      "headline": "Current recommendations as of 24 November 2026",
       "detail": "Automatic translation from Spanish. Official notice copied from the official page; read the original Spanish text there.",
       "public_updated_at": null,
       "history": [
+        {
+          "stamp": "44485d5d7a5b",
+          "date": "2026-11-24",
+          "kind": "warn",
+          "tag": "Official notice",
+          "title": "Recomendaciones vigentes a 24 de noviembre de 2026",
+          "text": "Official notice dated 24 de noviembre de 2026. Open the official page for the full text."
+        },
+        {
+          "stamp": "bf769f6d3f91",
+          "date": "2026-11-24",
+          "kind": "info",
+          "tag": "Page changed",
+          "title": "Official page wording changed",
+          "text": "New wording (original language): Recomendaciones vigentes a 24 de noviembre de 2026 / Albares defiende los derechos de las afganas como los derechos universales de todas las mujeres / Declaración conjunta sobre la resolución de la Corte Internacional de Justicia relativa a Myanmar. Open the official page for the full text."
+        },
         {
           "stamp": "19a5381a492a",
           "date": "2026-11-23",
@@ -466,9 +482,9 @@
           "text": "Spain's Saudi Arabia travel recommendations were last updated on 10 June 2026. Check the official page for the full wording."
         }
       ],
-      "last_ok": "2026-11-23T15:56:26Z",
-      "page_date": "23 de noviembre de 2026",
-      "headline_es": "Recomendaciones vigentes a 23 de noviembre de 2026"
+      "last_ok": "2026-11-24T04:45:27Z",
+      "page_date": "24 de noviembre de 2026",
+      "headline_es": "Recomendaciones vigentes a 24 de noviembre de 2026"
     },
     {
       "id": "ru",
@@ -492,7 +508,7 @@
           "text": "Russians were urged to refrain from tourist trips to the UAE, Kuwait, Bahrain, Qatar, Oman and Saudi Arabia until active fighting ends and flights and airports return to normal."
         }
       ],
-      "last_ok": "2026-11-23T15:56:28Z"
+      "last_ok": "2026-11-24T04:45:29Z"
     },
     {
       "id": "cn",
