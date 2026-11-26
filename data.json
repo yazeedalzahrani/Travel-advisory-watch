@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-26T02:52:08Z",
+  "checked_at": "2026-11-26T15:09:11Z",
   "errors": [],
   "countries": [
     {
@@ -68,7 +68,7 @@
           "text": "Against all travel to parts of the country (Yemen border). Travellers told to sign up for alerts and know where to shelter."
         }
       ],
-      "last_ok": "2026-11-26T02:50:37Z"
+      "last_ok": "2026-11-26T15:08:58Z"
     },
     {
       "id": "us",
@@ -142,7 +142,7 @@
           "text": "Non-emergency US government staff authorised to leave Saudi Arabia."
         }
       ],
-      "last_ok": "2026-11-26T02:50:37Z"
+      "last_ok": "2026-11-26T15:08:58Z"
     },
     {
       "id": "fr",
@@ -198,7 +198,7 @@
           "text": "Only the Yemen border area stayed formally advised against, as it was before the conflict."
         }
       ],
-      "last_ok": "2026-11-26T02:50:40Z",
+      "last_ok": "2026-11-26T15:08:59Z",
       "page_date": "10 novembre 2026"
     },
     {
@@ -245,7 +245,7 @@
           "text": "The Jeddah consulate flagged an update citing the military escalation involving Iran. Check the official page for the exact wording."
         }
       ],
-      "last_ok": "2026-11-26T02:50:47Z",
+      "last_ok": "2026-11-26T15:09:04Z",
       "page_date": "20.11.2026"
     },
     {
@@ -268,6 +268,14 @@
           "tag": "Page changed",
           "title": "Official page wording changed",
           "text": "New wording (original language): Mit einem reduzierten Haushaltsvolumen von knapp 6 Milliarden Euro für 2027 erfüllt das Auswärtige Amt seine vielfältigen Aufgaben in einem zunehmend schwierig… / Für Armenien und Aserbaidschan bietet sich eine historische Chance für einen dauerhaften Frieden. Die Nachbarländer im Südkaukasus sind enge Partner Deutschlan…. Open the official page for the full text."
+        },
+        {
+          "stamp": "5ff5f6b9d197",
+          "date": "2026-11-26",
+          "kind": "info",
+          "tag": "Page changed",
+          "title": "Official page wording changed",
+          "text": "New wording (original language): Mit einem reduzierten Haushaltsvolumen von knapp 6 Milliarden Euro für 2027 erfüllt das Auswärtige Amt seine vielfältigen Aufgaben in einem zunehmend schwierigen internationalen Umfeld. / Für Armenien und Aserbaidschan bietet sich eine historische Chance für einen dauerhaften Frieden. Die Nachbarländer im Südkaukasus sind enge Partner Deutschlands. Ihre Annäherung unterstützt Deutschla. Open the official page for the full text."
         },
         {
           "stamp": "2026-11-20T16:19:17+00:00",
@@ -339,7 +347,7 @@
         }
       ],
       "public_updated_at": "2026-11-20T16:19:17+00:00",
-      "last_ok": "2026-11-26T02:52:08Z"
+      "last_ok": "2026-11-26T15:09:11Z"
     },
     {
       "id": "es",
@@ -538,7 +546,7 @@
           "text": "Spain's Saudi Arabia travel recommendations were last updated on 10 June 2026. Check the official page for the full wording."
         }
       ],
-      "last_ok": "2026-11-26T02:50:49Z",
+      "last_ok": "2026-11-26T15:09:06Z",
       "page_date": "26 de noviembre de 2026",
       "headline_es": "Recomendaciones vigentes a 26 de noviembre de 2026"
     },
@@ -564,7 +572,7 @@
           "text": "Russians were urged to refrain from tourist trips to the UAE, Kuwait, Bahrain, Qatar, Oman and Saudi Arabia until active fighting ends and flights and airports return to normal."
         }
       ],
-      "last_ok": "2026-11-26T02:50:51Z"
+      "last_ok": "2026-11-26T15:09:08Z"
     },
     {
       "id": "cn",
